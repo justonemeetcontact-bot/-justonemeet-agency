@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustOneMeet | Agency</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-content">
+            <!-- 
+               UPDATED: Added 'preload="auto"' to fix black screen delay.
+            -->
+            <video id="preloadVideo" src="loading.mp4" autoplay muted playsinline preload="auto"></video>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header id="header">
+        <nav class="navbar container">
+            <div class="logo">
+                <a href="#">
+                    <!-- Image 1: Shows when at the TOP (Dark Background) -->
+                    <img src="white logo.png" alt="JustOneMeet White" class="logo-default">
+                    
+                    <!-- Image 2: Shows when SCROLLED (White Background) -->
+                    <img src="logo dark.png" alt="JustOneMeet Dark" class="logo-scrolled">
+                </a>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pack">Pack</a></li>
+                <li><a href="#realisations-avis">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="register-btn-mobile">REGISTER</button></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#contact" class="register-btn">REGISTER NOW</a>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Video Section -->
+    <section id="accueil" class="video-section">
+        <!-- Make sure 'videaceeuil2.mp4' exists in your folder -->
+        <video autoplay muted loop class="video-bg">
+            <source src="videaceeuil2.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+        </div>
+    </section>
+
+    <!-- Partners Infinite Scroll -->
+    <section class="partners-section" id="partenaires">
+        <div class="partners-track">
+            <!-- Duplicate images for seamless loop -->
+            <img src="logo9.jpeg" alt="Partner">
+            <img src="logo2.jpg" alt="Partner">
+            <img src="logo5.png" alt="Partner">
+            <img src="logo6.png" alt="Partner">
+            <img src="logo9.jpeg" alt="Partner">
+            <img src="logo2.jpg" alt="Partner">
+            <img src="logo5.png" alt="Partner">
+            <img src="logo6.png" alt="Partner">
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="section-padding light-bg">
+    <div class="container">
+        <h2 class="section-title dark-text">Nos Services</h2>
+        
+        <!-- The Container for Services -->
+       <div class="services-wrapper" id="servicesWrapper">
+            <!-- Service 1 -->
+            <div class="service-clean">
+                <i class="fas fa-building"></i>
+                <h3>Création d'Entreprise</h3>
+                <p>Accompagnement complet pour la création légale et la domiciliation.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-clean">
+                <i class="fas fa-pen-nib"></i>
+                <h3>Branding</h3>
+                <p>Identité visuelle, logos et charte graphique impactante.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-clean">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Développement Web</h3>
+                <p>Sites vitrines et e-commerce modernes et performants.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-clean">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Marketing Digital</h3>
+                <p>Stratégies de communication et campagnes sponsorisées.</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-clean">
+                <i class="fas fa-handshake"></i>
+                <h3>Mise en Relation</h3>
+                <p>Accès direct à notre réseau de partenaires stratégiques.</p>
+            </div>
+        </div>
+
+        <!-- The Button to Show All -->
+        <div style="text-align: center; margin-top: 40px;">
+            <button id="viewAllBtn" class="cta-btn">Voir tous les services</button>
+        </div>
+
+    </div>
+</section>
+
+    <!-- Pricing Packs -->
+    <section id="pack" class="section-padding dark-bg">
+        <div class="container">
+            <h2 class="section-title white-text">Nos Packs</h2>
+            <div class="packs-grid">
+                
+                <!-- Pack 1 -->
+                <div class="pack">
+                    <div class="pack-header">
+                        <h3>Starter</h3>
+                        <p class="pack-sub">Kickoff</p>
+                    </div>
+                    <div class="pack-price">1500 TND<span>/vie</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Création légale</li>
+                        <li><i class="fas fa-check"></i> Domiciliation</li>
+                        <li><i class="fas fa-check"></i> Logo simple</li>
+                    </ul>
+                    <!-- UPDATED BUTTON -->
+                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
+                </div>
+
+                <!-- Pack 2 -->
+                <div class="pack popular">
+                    <div class="badge">Recommandé</div>
+                    <div class="pack-header">
+                        <h3>Branding</h3>
+                        <p class="pack-sub">Signature</p>
+                    </div>
+                    <div class="pack-price">2500 TND<span>/vie</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Tout du Starter</li>
+                        <li><i class="fas fa-check"></i> Charte graphique</li>
+                        <li><i class="fas fa-check"></i> Supports print</li>
+                        
+                    </ul>
+                    <!-- UPDATED BUTTON -->
+                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
+                </div>
+
+                <!-- Pack 3 -->
+                <div class="pack">
+                    <div class="pack-header">
+                        <h3>Marketing</h3>
+                        <p class="pack-sub">Boost</p>
+                    </div>
+                    <div class="pack-price">3900 TND<span>/vie</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Tout du Branding</li>
+                        <li><i class="fas fa-check"></i> Gestion réseaux sociaux</li>
+                        <li><i class="fas fa-check"></i> Shooting photo</li>
+                    </ul>
+                    <!-- UPDATED BUTTON -->
+                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
+                </div>
+
+                 <!-- Pack 4 -->
+                 <div class="pack">
+                    <div class="pack-header">
+                        <h3>Empire</h3>
+                        <p class="pack-sub">All-in-One</p>
+                    </div>
+                    <div class="pack-price">6000 TND<span>/vie</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Tout du Marketing</li>
+                        <li><i class="fas fa-check"></i> Site E-commerce</li>
+                        <li><i class="fas fa-check"></i> Maintenance 3 mois</li>
+                    </ul>
+                    <!-- UPDATED BUTTON -->
+                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
+                </div>
+        </div>
+    </section>
+
+   <!-- Merged Section: Stats & Reviews -->
+    <section id="realisations-avis" class="merged-section">
+        <div class="container">
+            
+            <!-- Part 1: Stats (Nos Réalisations) -->
+            <div class="stats-part">
+                <h2 class="section-title dark-text">Nos Réalisations</h2>
+                <div class="progress-container">
+                    <div class="progress-item" data-target="49">
+                        <div class="circle">
+                            <span class="count">0</span>
+                        </div>
+                        <p>Entreprises créées</p>
+                    </div>
+
+                    <!-- Item 2: Percentage (e.g., 100% Satisfaction) -->
+                    <div class="progress-item" data-target="55">
+                        <div class="circle">
+                            <span class="count">0</span>
+                        </div>
+                        <p>Satisfaction Clients</p>
+                    </div>
+
+                    <!-- Item 3: Realistic number (e.g., 25) -->
+                    <div class="progress-item" data-target="25">
+                        <div class="circle">
+                            <span class="count">0</span>
+                        </div>
+                        <p>Projets digitaux</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider (Optional visual separation) -->
+            <div class="separator"></div>
+
+            <!-- Part 2: Reviews (Avis Clients) -->
+            <div class="reviews-part" id="reviews-section">
+                <h2 class="section-title dark-text">Avis Clients</h2>
+                <div class="reviews-track" id="reviewsTrack">
+                    <!-- Original Reviews -->
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Un service impeccable. Mon entreprise a été créée en un temps record."</p>
+                        <h4>Leslie Alexander</h4>
+                        <span>CEO, Software Co</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★☆</div>
+                        <p>"L'équipe marketing a transformé notre visibilité en ligne."</p>
+                        <h4>Dionne Russell</h4>
+                        <span>Booking App</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Service très professionnel, je recommande vivement."</p>
+                        <h4>Ahmed Ben Ali</h4>
+                        <span>Entrepreneur</span>
+                    </div>
+                    <!-- Duplicate Reviews for Loop -->
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Un service impeccable. Mon entreprise a été créée en un temps record."</p>
+                        <h4>Leslie Alexander</h4>
+                        <span>CEO, Software Co</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★☆</div>
+                        <p>"L'équipe marketing a transformé notre visibilité en ligne."</p>
+                        <h4>Dionne Russell</h4>
+                        <span>Booking App</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Service très professionnel, je recommande vivement."</p>
+                        <h4>Ahmed Ben Ali</h4>
+                        <span>Entrepreneur</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer-modern">
+        
+        <!-- SECTION: COMMENT ÇA MARCHE (Moved Here) -->
+        <div class="footer-steps-wrapper">
+            <h2 class="footer-section-title">Comment ça marche ?</h2>
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3>Contact</h3>
+                    <p>Nous discutons de vos besoins.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3>Stratégie</h3>
+                    <p>Nous élaborons un plan sur mesure.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3>Exécution</h3>
+                    <p>Nous lançons votre projet.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <h3>Croissance</h3>
+                    <p>Vous développez votre activité.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DIVIDER LINE -->
+        <div class="footer-divider"></div>
+
+
+        <!-- PHONE BADGE -->
+        <div class="connect-badge">
+            <span class="badge-label">APPEL DIRECT</span>
+            <a href="https://wa.me/21692890931" class="badge-number">
+                <i class="fab fa-whatsapp"></i> +216 92 890 931
+            </a>
+        </div>
+
+        <!-- INFO GRID -->
+        <div class="footer-details-grid">
+            <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Adresse</h3>
+                <p>Tunis, Ariana</p>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <h3>Horaires</h3>
+                <p>Lun-Ven: 8h - 17h<br>Sam: 9h - 13h</p>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>contact@justonemeet.com</p>
+            </div>
+        </div>
+
+        <!-- SOCIAL ICONS -->
+        <div class="social-links-modern">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/__justonemeet/"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <!-- GLOW & COPYRIGHT -->
+        <div class="bottom-glow"></div>
+        <div class="copyright-modern">
+        </div>
+    </footer>
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>
