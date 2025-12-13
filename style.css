@@ -454,6 +454,18 @@ header.scrolled .nav-links a:active {
 .separator { height: 1px; background: #eee; width: 80%; margin: 0 auto 50px auto; }
 
 /* Reviews */
+/* GRADIENT STARS */
+.review-card .stars {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #029772, #05C665);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    
+    display: inline-block;
+}
 .reviews-part { position: relative; cursor: grab; }
 .reviews-track { display: flex; gap: 30px; width: max-content; padding: 10px 0 30px 0; animation: scrollReviews 30s linear infinite; }
 .reviews-track.paused { animation-play-state: paused; }
