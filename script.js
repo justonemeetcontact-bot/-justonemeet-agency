@@ -1,22 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- PRELOADER ---
+    // --- 1. PRELOADER (Instant Opening - UPDATED) ---
     const preloader = document.getElementById('preloader');
     const video = document.getElementById('preloadVideo');
+
     const closePreloaderDirectly = () => {
         if(preloader) {
-            preloader.classList.add('loaded');
+            // No transition delay, just hide it immediately
+            preloader.style.display = 'none'; 
             document.body.style.overflow = 'auto';
         }
     };
-    if (video) {
-        video.playbackRate = 1.5; 
-        video.play().catch(() => {});
-        video.addEventListener('ended', () => setTimeout(closePreloaderDirectly, 0));
-        setTimeout(closePreloaderDirectly, 25000); 
-    } else { closePreloaderDirectly(); }
 
-    // --- MOBILE MENU ---
+    if (video) {
+        // Set to high speed as requested
+        video.playbackRate = 2.5; 
+        
+        video.play().catch(() => {
+            // If browser blocks autoplay, open site immediately
+            closePreloaderDirectly();
+        });
+
+        // The MOMENT the video hits the last frame, open the site
+        video.onended = () => {
+            closePreloaderDirectly();
+        };
+
+        // Safety backup: If video fails to load, open after 5s instead of 25s
+        setTimeout(closePreloaderDirectly, 5000); 
+    } else { 
+        closePreloaderDirectly(); 
+    }
+
+    // --- 2. HERO VIDEO SPEED ---
+    const heroVideos = document.querySelectorAll('.video-bg');
+    heroVideos.forEach(v => {
+        v.playbackRate = 2; 
+    });
+
+    // --- 3. MOBILE MENU ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     if(hamburger) {
@@ -30,17 +52,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             if(navLinks && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 const icon = hamburger.querySelector('i');
-                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                if(icon) {
+                    icon.classList.remove('fa-times'); 
+                    icon.classList.add('fa-bars');
+                }
             }
         });
     });
 
-    // --- STICKY HEADER ---
+    // --- 4. STICKY HEADER ---
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if(header) {
@@ -49,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- STATS ANIMATION ---
+    // --- 5. STATS ANIMATION ---
     const progressSection = document.querySelector('.merged-section');
     const counters = document.querySelectorAll('.circle span'); 
     let isLooping = false;
@@ -92,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
     if(progressSection) statsObserver.observe(progressSection);
 
-    // --- SERVICES ANIMATION ---
+    // --- 6. SERVICES ANIMATION ---
     const wrapper = document.getElementById('servicesWrapper');
     const services = document.querySelectorAll('.service-clean');
     const viewAllBtn = document.getElementById('viewAllBtn');
@@ -105,19 +132,22 @@ document.addEventListener('DOMContentLoaded', () => {
             else s.classList.remove('active');
         });
     }
+
     function startServiceLoop() {
-        if(services.length > 0) {
+        clearInterval(serviceInterval); 
+        updateServiceDisplay();
+        serviceInterval = setInterval(() => {
+            currentIndex++;
+            if (currentIndex >= services.length) currentIndex = 0;
             updateServiceDisplay();
-            serviceInterval = setInterval(() => {
-                currentIndex++;
-                if (currentIndex >= services.length) currentIndex = 0;
-                updateServiceDisplay();
-            }, 3000);
-        }
+        }, 3000);
     }
+
     startServiceLoop();
+
     if(viewAllBtn && wrapper) {
-        viewAllBtn.addEventListener('click', () => {
+        viewAllBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); 
             clearInterval(serviceInterval);
             services.forEach(s => s.classList.remove('active'));
             wrapper.classList.add('show-grid');
@@ -125,9 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ======================================================
-    // REVIEWS SECTION: AUTO-SCROLL + BUTTONS + LOGIC
-    // ======================================================
+    const servicesSection = document.getElementById('services');
+    if(servicesSection) {
+        servicesSection.addEventListener('click', () => {
+            if (wrapper && wrapper.classList.contains('show-grid')) {
+                wrapper.classList.remove('show-grid');
+                if(viewAllBtn) viewAllBtn.style.display = 'inline-block';
+                startServiceLoop();
+            }
+        });
+    }
+    
+    // --- 7. REVIEWS SECTION ---
     const track = document.getElementById('reviewsTrack');
     const container = document.getElementById('reviewsContainer');
     const btnLeft = document.getElementById('slideLeft');
@@ -136,61 +175,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (track && container) {
         let isPaused = false;
-        let scrollSpeed = 1; // Adjust speed (1 = Normal)
+        let scrollSpeed = 1; 
         let animationId;
 
-        // 1. AUTO SCROLL FUNCTION
         function autoScroll() {
             if (!isPaused) {
                 track.scrollLeft += scrollSpeed;
             }
-
-            // Infinite Loop Logic:
-            // We have 3 sets of cards. When we scroll past the width of 1 set (scrollWidth / 3),
-            // we immediately snap back to the start (1px) to create the infinite illusion.
             const oneSetWidth = track.scrollWidth / 3;
-            
             if (track.scrollLeft >= oneSetWidth) {
-                track.scrollLeft = 1; // Snap back to start (1px prevents flicker)
+                track.scrollLeft = 1;
             } else if (track.scrollLeft <= 0) {
-                track.scrollLeft = oneSetWidth; // Handle manual left scroll edge case
+                track.scrollLeft = oneSetWidth;
             }
-
             animationId = requestAnimationFrame(autoScroll);
         }
 
-        // Start Auto Scroll
         animationId = requestAnimationFrame(autoScroll);
 
-        // 2. STOP ON CLICK (Card)
         cards.forEach(card => {
             card.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent container from hearing this
-                isPaused = true; // Stop movement
-                // Visual feedback (Tiny shrink)
+                e.stopPropagation();
+                isPaused = true;
                 card.style.transform = "scale(0.98)";
                 setTimeout(() => card.style.transform = "none", 150);
             });
         });
 
-        // 3. RESUME ON CLICK (Background)
         container.addEventListener('click', () => {
-            if (isPaused) {
-                isPaused = false; // Resume movement
-            }
+            if (isPaused) isPaused = false;
         });
 
-        // 4. MANUAL BUTTONS
         if (btnLeft && btnRight) {
             btnLeft.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Move Left by 330px (Card width + Gap)
                 track.scrollBy({ left: -330, behavior: 'smooth' });
             });
-
             btnRight.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Move Right by 330px
                 track.scrollBy({ left: 330, behavior: 'smooth' });
             });
         }
