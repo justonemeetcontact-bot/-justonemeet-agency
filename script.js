@@ -6,27 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closePreloaderDirectly = () => {
         if(preloader) {
-            // No transition delay, just hide it immediately
             preloader.style.display = 'none'; 
             document.body.style.overflow = 'auto';
         }
     };
-
-    if (video) {
-        // Set to high speed as requested
+ if (video) {
         video.playbackRate = 2.5; 
         
         video.play().catch(() => {
-            // If browser blocks autoplay, open site immediately
             closePreloaderDirectly();
         });
-
-        // The MOMENT the video hits the last frame, open the site
         video.onended = () => {
             closePreloaderDirectly();
         };
-
-        // Safety backup: If video fails to load, open after 5s instead of 25s
         setTimeout(closePreloaderDirectly, 5000); 
     } else { 
         closePreloaderDirectly(); 
@@ -41,17 +33,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. MOBILE MENU ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
+    
     if(hamburger) {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             const icon = hamburger.querySelector('i');
+            
             if(navLinks.classList.contains('active')){
-                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+
+                icon.style.color = "#ffffff"; 
             } else {
-                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                icon.style.color = ""; 
             }
         });
     }
+
+    // Close mobile menu on link click and reset icon
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if(navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times'); 
+                    icon.classList.add('fa-bars');
+                    icon.style.color = ""; 
+                }
+            }
+        });
+    });
 
     // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -167,54 +181,108 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // --- 7. REVIEWS SECTION ---
+const track = document.getElementById('reviewsTrack');
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+
+if (track) {
+    let isPaused = false;
+    const scrollAmount = 350; 
+
+   // --- 7. REVIEWS SLIDER (SMOOTH LOOP) ---
     const track = document.getElementById('reviewsTrack');
-    const container = document.getElementById('reviewsContainer');
-    const btnLeft = document.getElementById('slideLeft');
-    const btnRight = document.getElementById('slideRight');
-    const cards = document.querySelectorAll('.review-card');
+    const leftBtn = document.querySelector('.left-btn');
+    const rightBtn = document.querySelector('.right-btn');
 
-    if (track && container) {
+    if (track) {
+        let scrollAmount = 0;
+        const cardWidth = 350; 
         let isPaused = false;
-        let scrollSpeed = 1; 
-        let animationId;
 
-        function autoScroll() {
+        // scrolly(Smooth)
+        const autoScroll = () => {
             if (!isPaused) {
-                track.scrollLeft += scrollSpeed;
+                track.scrollLeft += 1; 
+                if (track.scrollLeft >= (track.scrollWidth - track.clientWidth)) {
+                    track.scrollLeft = 0;
+                }
             }
-            const oneSetWidth = track.scrollWidth / 3;
-            if (track.scrollLeft >= oneSetWidth) {
-                track.scrollLeft = 1;
-            } else if (track.scrollLeft <= 0) {
-                track.scrollLeft = oneSetWidth;
-            }
-            animationId = requestAnimationFrame(autoScroll);
-        }
+        };
 
-        animationId = requestAnimationFrame(autoScroll);
+        // Animation Loop
+        let scrollInterval = setInterval(autoScroll, 20); 
 
-        cards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.stopPropagation();
-                isPaused = true;
-                card.style.transform = "scale(0.98)";
-                setTimeout(() => card.style.transform = "none", 150);
+        track.addEventListener('mouseenter', () => isPaused = true);
+        track.addEventListener('mouseleave', () => isPaused = false);
+
+        rightBtn.addEventListener('click', () => {
+            track.scrollTo({
+                left: track.scrollLeft + cardWidth,
+                behavior: 'smooth'
             });
+            isPaused = true; 
         });
-
-        container.addEventListener('click', () => {
-            if (isPaused) isPaused = false;
+        leftBtn.addEventListener('click', () => {
+            track.scrollTo({
+                left: track.scrollLeft - cardWidth,
+                behavior: 'smooth'
+            });
+            isPaused = true;
         });
-
-        if (btnLeft && btnRight) {
-            btnLeft.addEventListener('click', (e) => {
-                e.stopPropagation();
-                track.scrollBy({ left: -330, behavior: 'smooth' });
-            });
-            btnRight.addEventListener('click', (e) => {
-                e.stopPropagation();
-                track.scrollBy({ left: 330, behavior: 'smooth' });
-            });
-        }
     }
+
+    // 2. Auto-play Loop (Animation)
+    let autoScroll = setInterval(() => {
+        if (!isPaused) scrollRight();
+    }, 3000);
+
+    // 3. Stop animation on click or hover
+    track.addEventListener('mouseenter', () => isPaused = true);
+    track.addEventListener('mouseleave', () => isPaused = false);
+    track.addEventListener('click', () => isPaused = true); 
+
+    // 4. Buttons Click
+    if (rightBtn) rightBtn.addEventListener('click', () => {
+        scrollRight();
+        isPaused = true; 
+    });
+
+    if (leftBtn) leftBtn.addEventListener('click', () => {
+        scrollLeftFunc();
+        isPaused = true;
+    });
+}
+    // --- 8. PROMISES ANIMATION  ---
+    const promisesSection = document.getElementById('promesses');
+    const promiseCards = document.querySelectorAll('.promise-card');
+
+    if (promisesSection) {
+        const promiseObserver = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) {
+                promiseCards.forEach(card => card.classList.add('show'));
+                promiseObserver.unobserve(promisesSection); // Run once
+            }
+        }, { threshold: 0.2 });
+        promiseObserver.observe(promisesSection);
+    }
+    // --- 9. PROCESS SECTION ANIMATION ---
+    const processSection = document.getElementById('process');
+    const stepCards = document.querySelectorAll('.step-card');
+
+    if (processSection && stepCards.length > 0) {
+        const processObserver = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) {
+                stepCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "translateY(0)";
+                    }, index * 200); 
+                });
+                processObserver.unobserve(processSection);
+            }
+        }, { threshold: 0.2 });
+
+        processObserver.observe(processSection);
+    }
+
 });

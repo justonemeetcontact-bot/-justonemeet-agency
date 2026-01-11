@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustOneMeet | Agency</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- CSS Link -->
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Mlogo.png">
 </head>
 <body>
     <!-- PRELOADER -->
@@ -24,16 +22,15 @@
         <nav class="navbar container">
             <div class="logo">
                 <a href="#">
-                    <!-- White Logo (Default) -->
-                    <img src="white logo.png" alt="JustOneMeet White" class="logo-default">
-                    <!-- Dark Logo (Scrolled) -->
-                    <img src="logo dark.png" alt="JustOneMeet Dark" class="logo-scrolled">
+                    <!-- White Logo  -->
+                    <img src="logo s.png" alt="JustOneMeet White" class="logo-default">
                 </a>
             </div>
        <ul class="nav-links" id="navLinks">
     <li><a href="#accueil">Accueil</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#pack">Packs</a></li>
+    <li><a href="#promesses">Promesses</a></li> 
     <li><a href="#realisations-avis">À propos</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#contact" class="register-btn-mobile">REGISTER NOW</a></li>
@@ -106,6 +103,87 @@
             </div>
         </div>
     </section>
+     <!-- pack -->
+<section id="pack" class="section-padding dark-bg">
+    <div class="container">
+        <h2 class="section-title white-text">Nos Packs</h2>
+        
+        <div class="pack-note">
+            <p class="main-note">
+                <i class="fas fa-hand-point-right"></i> 
+                Services à l'unité ou packs avec facilités de paiement</p>
+            <p class="sub-note"> des solutions flexibles pour tous vos projetst</p>
+        </div>
+
+        <div class="packs-grid">
+            <div class="pack">
+                <div class="pack-header">
+                    <h3>Pack Starter</h3>
+                    <p class="pack-sub">“Kickoff”</p>
+                </div>
+                <div class="pack-price">900 TND</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> <span>Création légale entreprise</span></li>
+                    <li><i class="fas fa-check"></i> <span>Domiciliation (3 mois)</span></li>
+                    <li><i class="fas fa-check"></i> <span>Gestion courrier & Cachet</span></li>
+                </ul>
+                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
+            </div>
+
+            <div class="pack popular">
+                <div class="badge"></div>
+                <div class="pack-header">
+                    <h3>Pack Branding</h3>
+                    <p class="pack-sub">“Signature”</p>
+                </div>
+                <div class="pack-price">2500 TND</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> <span>Tout du pack précédent</span></li>
+                    <li><i class="fas fa-check"></i> <span>Charte graphique complète</span></li>
+                    <li><i class="fas fa-check"></i> <span>Site vitrine simple (5 pages)</span></li>
+                </ul>
+                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
+                <div class="facility-tag">
+                    <i class="fas fa-calendar-alt"></i> <span>Payez sur 2 mois</span>
+                </div>
+            </div>
+
+            <div class="pack">
+                <div class="pack-header">
+                    <h3>Pack Marketing</h3>
+                    <p class="pack-sub">“Boost”</p>
+                </div>
+                <div class="pack-price">4000 TND</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> <span>Gestion réseaux (1 mois)</span></li>
+                    <li><i class="fas fa-check"></i> <span>Campagne sponsorisée</span></li>
+                    <li><i class="fas fa-check"></i> <span>Shooting photo & vidéo</span></li>
+                </ul>
+                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
+                <div class="facility-tag">
+                    <i class="fas fa-calendar-alt"></i> <span>Payez sur 3 mois</span>
+                </div>
+            </div>
+
+            <div class="pack">
+                <div class="pack-header">
+                    <h3>Pack All-in-One</h3>
+                    <p class="pack-sub">“Empire”</p>
+                </div>
+                <div class="pack-price">5800 TND</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> <span>Site e-commerce (20 prod)</span></li>
+                    <li><i class="fas fa-check"></i> <span>Maintenance 3 mois</span></li>
+                    <li><i class="fas fa-check"></i> <span>Suivi & Stratégie (6 mois)</span></li>
+                </ul>
+                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
+                <div class="facility-tag">
+                    <i class="fas fa-calendar-alt"></i> <span>Payez sur 4 mois</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Comment ça marche -->
     <section id="process" class="section-padding white-bg">
@@ -135,77 +213,41 @@
             </div>
         </div>
     </section>
-
-    <!-- Pricing Packs -->
-    <section id="pack" class="section-padding dark-bg">
-        <div class="container">
-            <h2 class="section-title white-text">Nos Packs</h2>
-            <div class="packs-grid">
-                <!-- Pack 1 -->
-                <div class="pack">
-                    <div class="pack-header">
-                        <h3>Starter</h3>
-                        <p class="pack-sub">Kickoff</p>
-                    </div>
-                    <div class="pack-price">1500 TND<span>/vie</span></div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Création légale</li>
-                        <li><i class="fas fa-check"></i> Domiciliation</li>
-                        <li><i class="fas fa-check"></i> Logo simple</li>
-                    </ul>
-                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
-                </div>
-                <!-- Pack 2 -->
-                <div class="pack popular">
-                    <div class="badge">Recommandé</div>
-                    <div class="pack-header">
-                        <h3>Branding</h3>
-                        <p class="pack-sub">Signature</p>
-                    </div>
-                    <div class="pack-price">2500 TND<span>/vie</span></div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Tout du Starter</li>
-                        <li><i class="fas fa-check"></i> Charte graphique</li>
-                        <li><i class="fas fa-check"></i> Supports print</li>
-                    </ul>
-                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
-                </div>
-                <!-- Pack 3 -->
-                <div class="pack">
-                    <div class="pack-header">
-                        <h3>Marketing</h3>
-                        <p class="pack-sub">Boost</p>
-                    </div>
-                    <div class="pack-price">3900 TND<span>/vie</span></div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Tout du Branding</li>
-                        <li><i class="fas fa-check"></i> Gestion réseaux sociaux</li>
-                        <li><i class="fas fa-check"></i> Shooting photo</li>
-                    </ul>
-                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
-                </div>
-                 <!-- Pack 4 -->
-                 <div class="pack">
-                    <div class="pack-header">
-                        <h3>Empire</h3>
-                        <p class="pack-sub">All-in-One</p>
-                    </div>
-                    <div class="pack-price">6000 TND<span>/vie</span></div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Tout du Marketing</li>
-                        <li><i class="fas fa-check"></i> Site E-commerce</li>
-                        <li><i class="fas fa-check"></i> Maintenance 3 mois</li>
-                    </ul>
-                    <a href="#contact" class="pack-btn">Contacter pour plus</a>
-                </div>
+    
+     <!-- promesses -->
+<section id="promesses" class="section-padding white-bg">
+    <div class="container">
+        <h2 class="section-title dark-text">Notre promesse</h2>
+        <p class="promise-subtitle">Avec JustOneMeet, vous gagnez</p>
+        
+        <div class="promises-grid">
+            <div class="promise-card">
+                <div class="promise-icon"><i class="fas fa-clock"></i></div>
+                <h3>Du temps</h3>
+                <p>Un seul interlocuteur pour plusieurs besoins</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon"><i class="fas fa-bolt"></i></div>
+                <h3>De l’énergie</h3>
+                <p>Concentrez-vous sur votre projet, on s’occupe du reste</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>De l’argent</h3>
+                <p>Nos solutions packagées réduisent vos coûts</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon"><i class="fas fa-leaf"></i></div>
+                <h3>De la simplicité</h3>
+                <p>Plus besoin de courir entre différents prestataires</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-   <!-- Merged Section: Stats & Reviews -->
+   <!-- Stats & Reviews -->
     <section id="realisations-avis" class="merged-section">
         <div class="container">
-            
             <!-- Part 1: Stats -->
             <div class="stats-part">
                 <h2 class="section-title dark-text">Nos Réalisations</h2>
@@ -227,11 +269,10 @@
 
             <div class="separator"></div>
 
-            <!-- Part 2: Reviews (UPDATED STRUCTURE) -->
+            <!-- Part 2:Reviews -->
             <div class="reviews-part" id="reviewsContainer">
                 <h2 class="section-title dark-text">Avis Clients</h2>
-                
-                <!-- GREEN BUTTONS -->
+                 <!--  BUTTONS -->
                 <button class="nav-btn left-btn" id="slideLeft"><i class="fas fa-chevron-left"></i></button>
                 <button class="nav-btn right-btn" id="slideRight"><i class="fas fa-chevron-right"></i></button>
     
@@ -320,7 +361,7 @@
             <div class="detail-item">
                 <i class="fas fa-envelope"></i>
                 <h3>Email</h3>
-                <p>Justonemeet.contact@gmail.com</p>
+                <p>contact@Justonemeet.com</p>
             </div>
         </div>
         <div class="social-links-modern">
