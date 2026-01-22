@@ -211,31 +211,45 @@ header.scrolled .nav-links a { color: #ffffff; }
     font-style: italic;
 }
 /* Mobile Adjustment */
+@media (max-width: 1024px) {
+    .packs-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .pack:nth-child(5) {
+        grid-column: auto;
+        width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
-    .main-note {
-        font-size: 1.3rem;
-        flex-direction: column; 
+    .packs-grid {
+        grid-template-columns: 1fr; 
     }
-    .pack-note {
-        margin-bottom: 25px;
+    .pack:nth-child(5) {
+        width: 100%;
     }
 }
+.pack { 
+    background: var(--dark-light); 
+    border-radius: 20px; 
+    padding: 30px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    transition: var(--transition);
+}
+
 .pack .features {
-    list-style: none !important;
-    padding: 0 !important;
-    margin-top: 20px !important;
-    margin-bottom: 10px !important; 
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 160px; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
+
 .pack .features li {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    font-size: 0.9rem !important; 
-    margin-bottom: 12px;
-    white-space: nowrap; 
+    white-space: normal !important; 
+    font-size: 0.85rem;
+    margin-bottom: 10px;
 }
 .pack .features li i {
     color: #05C665 !important;
@@ -263,10 +277,47 @@ header.scrolled .nav-links a { color: #ffffff; }
 }
 .packs-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-    gap: 15px; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
     align-items: stretch; 
     width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+.pack:nth-child(5) {
+    grid-column: 1 / -1; 
+    justify-self: center; 
+    width: 300px; 
+    margin-top: 20px;
+}
+/* Style spécial pour le 5ème pack - Effet Vert et Lumineux */
+.pack:nth-child(5) {
+    background: linear-gradient(145deg, #029772, #05C665) !important; 
+    border: none !important;
+    position: relative;
+    box-shadow: 0 0 30px rgba(5, 198, 101, 0.4); 
+    transform: scale(1.02); 
+    z-index: 1;
+}
+.pack:nth-child(5) .pack-header h3,
+.pack:nth-child(5) .pack-header p,
+.pack:nth-child(5) .pack-price,
+.pack:nth-child(5) .features li,
+.pack:nth-child(5) .sub-note {
+    color: #ffffff !important; 
+}
+.pack:nth-child(5) .features li i {
+    color: #ffffff !important;
+}
+.pack:nth-child(5) .pack-btn {
+    background: #ffffff !important;
+    color: #029772 !important;
+    font-weight: 800;
+}
+.pack:nth-child(5) .facility-tag {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
 }
 .pack { 
     background: var(--dark-light); 
@@ -304,6 +355,32 @@ header.scrolled .nav-links a { color: #ffffff; }
     font-weight: 800;
     margin: 10px 0 !important;
     color: #05C665 !important;
+}
+@media (max-width: 768px) {
+    .packs-grid {
+        grid-template-columns: 1fr !important; 
+        gap: 25px;
+    }
+
+    .pack:nth-child(5) {
+        grid-column: auto !important;
+        width: 100% !important;
+        margin-top: 0;
+    }
+
+    .pack .features li {
+        white-space: normal !important; 
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+    }
+
+    .pack-header h3 {
+        font-size: 1.4rem !important;
+    }
+
+    .pack-price {
+        font-size: 1.8rem !important;
+    }
 }
 
 /* --- 4 comment sa marche--- */
