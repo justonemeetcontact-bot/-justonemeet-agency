@@ -52,20 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close mobile menu on link click and reset icon
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            if(navLinks && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                const icon = hamburger.querySelector('i');
-                if(icon) {
-                    icon.classList.remove('fa-times'); 
-                    icon.classList.add('fa-bars');
-                    icon.style.color = ""; 
-                }
-            }
-        });
-    });
 
     // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -91,47 +77,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 5. STATS ANIMATION ---
-    const progressSection = document.querySelector('.merged-section');
-    const counters = document.querySelectorAll('.circle span'); 
-    let isLooping = false;
-    let loopInterval = null;
 
-    const runStatsAnimation = () => {
-        counters.forEach(counter => {
-            const parent = counter.closest('.progress-item');
-            const target = parseInt(parent.getAttribute('data-target'));
-            const circle = counter.closest('.circle');
-            if (!target) return;
-            const increment = target / 100; 
-            let current = 0;
-            circle.style.setProperty('--percent', 0);
-            const updateCounter = () => {
-                current += increment;
-                if(current < target) {
-                    counter.innerText = Math.ceil(current) + (target === 100 ? "%" : "+");
-                    circle.style.setProperty('--percent', (current / target) * 100);
-                    setTimeout(updateCounter, 20);
-                } else {
-                    counter.innerText = target + (target === 100 ? "%" : "+");
-                    circle.style.setProperty('--percent', 100);
-                }
-            };
-            updateCounter();
-        });
-    };
-    const statsObserver = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting) {
-            if (!isLooping) {
-                runStatsAnimation(); 
-                loopInterval = setInterval(runStatsAnimation, 5000);
-                isLooping = true;
+const progressSection = document.querySelector('#realisations'); 
+const counters = document.querySelectorAll('.count'); 
+
+let isLooping = false;
+let loopInterval = null;
+
+const runStatsAnimation = () => {
+    counters.forEach(counter => {
+        const parent = counter.closest('.progress-item');
+        const target = parseInt(parent.getAttribute('data-target'));
+        const circle = parent.querySelector('.circle');
+        
+        if (!target) return;
+
+        let current = 0;
+        const duration = 2000; // 2 seconds animation
+        const steps = 50;
+        const increment = target / steps;
+        const stepTime = duration / steps;
+
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                counter.innerText = Math.ceil(current);
+                circle.style.setProperty('--percent', (current / target) * 100);
+                setTimeout(updateCounter, stepTime);
+            } else {
+                counter.innerText = target;
+                circle.style.setProperty('--percent', 100);
             }
-        } else {
-            clearInterval(loopInterval);
-            isLooping = false;
+        };
+        circle.style.setProperty('--percent', 0);
+        updateCounter();
+    });
+};
+
+// Intersection Observer 
+const statsObserver = new IntersectionObserver((entries) => {
+    if(entries[0].isIntersecting) {
+        if (!isLooping) {
+            runStatsAnimation(); 
+            loopInterval = setInterval(runStatsAnimation, 8000);
+            isLooping = true;
         }
-    }, { threshold: 0.1 });
-    if(progressSection) statsObserver.observe(progressSection);
+    } else {
+        clearInterval(loopInterval);
+        isLooping = false;
+    }
+}, { threshold: 0.3 });
+
+if(progressSection) {
+    statsObserver.observe(progressSection);
+}
 
     // --- 6. SERVICES ANIMATION ---
     const wrapper = document.getElementById('servicesWrapper');

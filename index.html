@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="Mlogo.png">
+    
 </head>
 <body>
     <!-- PRELOADER -->
@@ -29,10 +30,9 @@
        <ul class="nav-links" id="navLinks">
     <li><a href="#accueil">Accueil</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#pack">Packs</a></li>
     <li><a href="#promesses">Promesses</a></li> 
-    <li><a href="#realisations-avis">À propos</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#realisations">À propos</a></li>
+    <li><a href="#contact-form">Contact</a></li>
     <li><a href="#contact" class="register-btn-mobile">REGISTER NOW</a></li>
 </ul>
 
@@ -47,192 +47,62 @@
 
     <!-- Hero Video Section -->
     <section id="accueil" class="video-section">
-        <video autoplay muted loop class="video-bg">
-            <source src="v222.mp4" type="video/mp4">
-        </video>
+        <video autoplay muted loop playsinline class="video-bg">
+    <source src="VF.mp4" type="video/mp4">
+</video>
         <div class="video-overlay"></div>
-    </section>
-
-    <!-- Partners Infinite Scroll -->
-    <section class="partners-section" id="partenaires">
-        <div class="partners-track">
-            <img src="logo9.jpeg" alt="Partner">
-            <img src="logo2.jpg" alt="Partner">
-            <img src="logo5.png" alt="Partner">
-            <img src="logo6.png" alt="Partner">
-            <img src="logo9.jpeg" alt="Partner">
-            <img src="logo2.jpg" alt="Partner">
-            <img src="logo5.png" alt="Partner">
-            <img src="logo6.png" alt="Partner">
-        </div>
     </section>
 
     <!-- Services Grid -->
     <section id="services" class="section-padding light-bg">
-        <div class="container">
-            <h2 class="section-title dark-text">Nos Services</h2>
-            <div class="services-wrapper" id="servicesWrapper">
-                <div class="service-clean">
-                    <i class="fas fa-building"></i>
-                    <h3>Création d'Entreprise</h3>
-                    <p>Accompagnement complet pour la création légale et la domiciliation.</p>
-                </div>
-                <div class="service-clean">
-                    <i class="fas fa-pen-nib"></i>
-                    <h3>Branding</h3>
-                    <p>Identité visuelle, logos et charte graphique impactante.</p>
-                </div>
-                <div class="service-clean">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Développement Web</h3>
-                    <p>Sites vitrines et e-commerce modernes et performants.</p>
-                </div>
-                <div class="service-clean">
-                    <i class="fas fa-bullhorn"></i>
-                    <h3>Marketing Digital</h3>
-                    <p>Stratégies de communication et campagnes sponsorisées.</p>
-                </div>
-                <div class="service-clean">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Mise en Relation</h3>
-                    <p>Accès direct à notre réseau de partenaires stratégiques.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <button id="viewAllBtn" class="cta-btn">Voir tous les services</button>
-            </div>
-        </div>
-    </section>
-     <!-- pack -->
-<section id="pack" class="section-padding dark-bg">
     <div class="container">
-        <h2 class="section-title white-text">Nos Packs</h2>
-        
-        <div class="pack-note">
-            <p class="main-note">
-                <i class="fas fa-hand-point-right"></i> 
-                Services à l'unité ou packs avec facilités de paiement</p>
-            <p class="sub-note"> des solutions flexibles pour tous vos projetst</p>
+        <h2 class="section-title dark-text">Nos Services</h2>
+        <div class="services-wrapper show-grid" id="servicesWrapper">
+            
+            <div class="service-clean">
+                <i class="fas fa-building"></i>
+                <h3>Création d'Entreprise</h3>
+                <p>Domiciliation commerciale, rédaction des statuts, immatriculation et accompagnement juridique complet.</p>
+            </div>
+
+            <div class="service-clean">
+                <i class="fas fa-pen-nib"></i>
+                <h3>Branding & Design</h3>
+                <p>Identité visuelle, logos professionnels, charte graphique et design de supports marketing (flyers, packaging).</p>
+            </div>
+
+            <div class="service-clean">
+                <i class="fas fa-chart-line"></i>
+                <h3>Stratégie Business</h3>
+                <p>Étude de marché, positionnement de marque et plan marketing 30/60/90 jours pour booster votre croissance.</p>
+            </div>
+
+            <div class="service-clean">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Marketing Digital</h3>
+                <p>Gestion des réseaux sociaux, campagnes Meta Ads / Google Ads, SEO et community management complet.</p>
+            </div>
+
+            <div class="service-clean">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web & Mobile</h3>
+                <p>Création de sites vitrines, boutiques e-commerce (Shopify/WooCommerce) et applications mobiles sur mesure.</p>
+            </div>
+
+            <div class="service-clean">
+                <i class="fas fa-handshake"></i>
+                <h3>Mise en Relation</h3>
+                <p>Accès direct à un réseau d'investisseurs, de fournisseurs fiables et de partenaires business stratégiques.</p>
+            </div>
+
         </div>
-
-        <div class="packs-grid">
-            <div class="pack">
-                <div class="pack-header">
-                    <h3>Pack Starter</h3>
-                    <p class="pack-sub">“Kickoff”</p>
-                </div>
-                <div class="pack-price">900</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> <span>Création légale entreprise</span></li>
-                    <li><i class="fas fa-check"></i> <span>Domiciliation (3 mois)</span></li>
-                </ul>
-                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
-                <div class="facility-tag">
-                    <i class="fas fa-calendar-alt"></i> <span>Hors facilité de paiement</span>
-                </div>
-            </div>
-
-            <div class="pack popular">
-                <div class="badge"></div>
-                <div class="pack-header">
-                    <h3>Pack Branding</h3>
-                    <p class="pack-sub">“Signature”</p>
-                </div>
-                <div class="pack-price">2000 – 2500</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> <span>Pack 1</span></li>
-                    <li><i class="fas fa-check"></i> <span>Charte graphique complète</span></li>
-                    <li><i class="fas fa-check"></i> <span>+ 1000cv</span></li>
-                </ul>
-                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
-                <div class="facility-tag">
-                    <i class="fas fa-calendar-alt"></i> <span>Payez sur 2 mois</span>
-                </div>
-            </div>
-
-            <div class="pack">
-                <div class="pack-header">
-                    <h3>Pack Marketing</h3>
-                    <p class="pack-sub">“Boost”</p>
-                </div>
-                <div class="pack-price">3300 – 5300</div>
-                <ul class="features">
-                     <li><i class="fas fa-check"></i> <span>pack 1 + 2</span></li>
-                    <li><i class="fas fa-check"></i> <span>site web (vitrine/e-commerce)</span></li>
-                </ul>
-                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
-                <div class="facility-tag">
-                    <i class="fas fa-calendar-alt"></i> <span>Payez sur 3 mois</span>
-                </div>
-            </div>
-
-            <div class="pack">
-                <div class="pack-header">
-                    <h3>Pack All-in-One</h3>
-                    <p class="pack-sub">“Empire”</p>
-                </div>
-                <div class="pack-price">4300-6300</div>
-                <ul class="features">
-                     <li><i class="fas fa-check"></i> <span>pack 1 + 2 + 3</span></li>
-                    <li><i class="fas fa-check"></i> <span>pack marketing complet</span></li>
-                    <li><i class="fas fa-check"></i> <span>1 mois de gestion</span></li>
-                </ul>
-                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
-                <div class="facility-tag">
-                    <i class="fas fa-calendar-alt"></i> <span>Payez sur 4 mois</span>
-                </div>
-            </div>
-
-            <div class="pack">
-                <div class="pack-header">
-                    <h3>Pack just one meet</h3>
-                    <p class="pack-sub">“Empire”</p>
-                </div>
-                <div class="pack-price">10000</div>
-                <ul class="features">
-                     <li><i class="fas fa-check"></i> <span>pack 1 + 2 + 3 + 4</span></li>
-                    <li><i class="fas fa-check"></i> <span>mise en relation </span></li>
-                    <li><i class="fas fa-check"></i> <span>Maintenance 3 mois</span></li>
-                </ul>
-                <a href="#contact" class="pack-btn">CONTACTER POUR PLUS</a>
-                <div class="facility-tag">
-                    <i class="fas fa-calendar-alt"></i> <span>Payez sur 6 mois</span>
-                </div>
-            </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://wa.me/21692890931" class="cta-btn">Demander un devis</a>
         </div>
     </div>
 </section>
-
-    <!-- Comment ça marche -->
-    <section id="process" class="section-padding white-bg">
-        <div class="container">
-            <h2 class="section-title dark-text">Comment ça marche ?</h2>
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-num">1</div>
-                    <h3>Contact</h3>
-                    <p>Nous discutons de vos besoins.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">2</div>
-                    <h3>Stratégie</h3>
-                    <p>Nous élaborons un plan sur mesure.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">3</div>
-                    <h3>Exécution</h3>
-                    <p>Nous lançons votre projet.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">4</div>
-                    <h3>Croissance</h3>
-                    <p>Vous développez votre activité.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-     <!-- promesses -->
+      <!-- promesses -->
 <section id="promesses" class="section-padding white-bg">
     <div class="container">
         <h2 class="section-title dark-text">Notre promesse</h2>
@@ -262,33 +132,71 @@
         </div>
     </div>
 </section>
-
-   <!-- Stats & Reviews -->
-    <section id="realisations-avis" class="merged-section">
+  <!-- Partners Infinite Scroll -->
+    <section class="partners-section" id="partenaires">
+        <div class="partners-track">
+            <img src="logo9.jpeg" alt="Partner">
+            <img src="logo2.jpg" alt="Partner">
+            <img src="logo5.png" alt="Partner">
+            <img src="logo6.png" alt="Partner">
+            <img src="logo9.jpeg" alt="Partner">
+            <img src="logo2.jpg" alt="Partner">
+            <img src="logo5.png" alt="Partner">
+            <img src="logo6.png" alt="Partner">
+        </div>
+    </section>
+    <!-- Comment ça marche -->
+    <section id="process" class="section-padding white-bg">
         <div class="container">
-            <!-- Part 1: Stats -->
-            <div class="stats-part">
-                <h2 class="section-title dark-text">Nos Réalisations</h2>
-                <div class="progress-container">
-                    <div class="progress-item" data-target="49">
-                        <div class="circle"><span class="count">0</span></div>
-                        <p>Entreprises créées</p>
-                    </div>
-                    <div class="progress-item" data-target="55">
-                        <div class="circle"><span class="count">0</span></div>
-                        <p>Satisfaction Clients</p>
-                    </div>
-                    <div class="progress-item" data-target="25">
-                        <div class="circle"><span class="count">0</span></div>
-                        <p>Projets digitaux</p>
-                    </div>
+            <h2 class="section-title dark-text">Comment ça marche ?</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3>Contact</h3>
+                    <p>Nous discutons de vos besoins.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3>Stratégie</h3>
+                    <p>Nous élaborons un plan sur mesure.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3>Exécution</h3>
+                    <p>Nous lançons votre projet.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <h3>Croissance</h3>
+                    <p>Vous développez votre activité.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="separator"></div>
+      <!-- Stats -->
+   <section id="realisations" class="stats-part">
+    <div class="container">
+        <h2 class="section-title">Nos Réalisations</h2>
+        <div class="progress-container">
+            <div class="progress-item" data-target="49">
+                <div class="circle"><span class="count">0</span></div>
+                <p>Entreprises créées</p>
+            </div>
+            <div class="progress-item" data-target="55">
+                <div class="circle"><span class="count">0</span></div>
+                <p>Satisfaction Clients</p>
+            </div>
+            <div class="progress-item" data-target="25">
+                <div class="circle"><span class="count">0</span></div>
+                <p>Projets digitaux</p>
+            </div>
+        </div>
+    </div> </section>
 
-            <!-- Part 2:Reviews -->
-            <div class="reviews-part" id="reviewsContainer">
+            <!-- Reviews -->
+             <section id="reviews-section" class="reviews">
+                <div class="reviews-part" id="reviewsContainer">
                 <h2 class="section-title dark-text">Avis Clients</h2>
                  <!--  BUTTONS -->
                 <button class="nav-btn left-btn" id="slideLeft"><i class="fas fa-chevron-left"></i></button>
@@ -351,25 +259,54 @@
                         <p>"خدمة ممتازة واحترافية. عاونوني باش نأسس مشروعي في وقت قصير. يعطيهم الصحة"</p>
                         <h4>Youssef Mejbri</h4>
                     </div>
-                </div>
+                </div> </section>
+
+                 <!-- contact-form -->
+    <section id="contact-form" class="contact-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2 class="section-title">Parlons de votre <span>Projet</span></h2>
+                <p>Laissez-nous un message et notre équipe vous contactera dans les plus brefs délais.</p>
             </div>
+            
+            <form action="https://formspree.io/f/your_id_here" method="POST" class="modern-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Votre Nom complet" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Votre Adresse Email" required>
+                </div>
+                <div class="form-group">
+                    <select name="service">
+                        <option value="creation">Création d'Entreprise</option>
+                        <option value="branding">Branding & Design</option>
+                        <option value="marketing">Marketing Digital</option>
+                        <option value="web">Développement Web</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Détails de votre projet..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer le message</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
-    <footer id="contact" class="footer-modern">
-        <div class="footer-divider"></div>
-        <div class="connect-badge">
-            <span class="badge-label">APPEL DIRECT</span>
-            <a href="https://wa.me/21692890931" class="badge-number">
-                <i class="fab fa-whatsapp"></i> +216 92 890 931
-            </a>
+   <footer id="contact" class="footer-modern">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h2 class="footer-logo">JustOne<span>Meet</span></h2>
+            <p>Accompagnement stratégique pour votre succès business.</p>
         </div>
+
         <div class="footer-details-grid">
             <div class="detail-item">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Adresse</h3>
-                <p>Tunis, Ariana</p>
+                <p>Bureau nº10, Immeuble EL Nozha, Cité El Nozha, Ariana</p>
             </div>
             <div class="detail-item">
                 <i class="fas fa-clock"></i>
@@ -379,17 +316,26 @@
             <div class="detail-item">
                 <i class="fas fa-envelope"></i>
                 <h3>Email</h3>
-                <p>contact@Justonemeet.com</p>
+                <p>hello@justonemeet.com</p>
             </div>
         </div>
+
         <div class="social-links-modern">
             <a href="https://www.facebook.com/share/17vGsw1qL1/"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/__justonemeet/"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@__justonemeet?_r=1&_t=ZM-92BcOHY9xtM"><i class="fab fa-tiktok"></i></a>
         </div>
-        <div class="bottom-glow"></div>
-        <div class="copyright-modern"></div>
-    </footer>
+    </div>
+    
+    <div class="copyright-modern">
+        <p>&copy; 2026 JustOneMeet. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/21692890931" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span class="float-text">Besoin d'aide ?</span>
+</a>
     
     <!-- JavaScript Link -->
     <script src="script.js"></script>
