@@ -262,37 +262,28 @@
                 </div> </section>
 
                  <!-- contact-form -->
-    <section id="contact-form" class="contact-section">
-    <div class="container">
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h2 class="section-title">Parlons de votre <span>Projet</span></h2>
-                <p>Laissez-nous un message et notre équipe vous contactera dans les plus brefs délais.</p>
-            </div>
-            
-            <form action="https://formspree.io/f/your_id_here" method="POST" class="modern-form">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Votre Nom complet" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Votre Adresse Email" required>
-                </div>
-                <div class="form-group">
-                    <select name="service">
-                        <option value="creation">Création d'Entreprise</option>
-                        <option value="branding">Branding & Design</option>
-                        <option value="marketing">Marketing Digital</option>
-                        <option value="web">Développement Web</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Détails de votre projet..." required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Envoyer le message</button>
-            </form>
-        </div>
+  <form data-netlify="true" name="contact-agency" id="contact-agency" method="POST" class="modern-form">
+    <input type="hidden" name="form-name" value="contact-agency" />
+
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Votre Nom complet" required>
     </div>
-</section>
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Votre Adresse Email" required>
+    </div>
+    <div class="form-group">
+        <select name="service">
+            <option value="creation">Création d'Entreprise</option>
+            <option value="branding">Branding & Design</option>
+            <option value="marketing">Marketing Digital</option>
+            <option value="web">Développement Web</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <textarea name="message" placeholder="Détails de votre projet..." required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Envoyer le message</button>
+</form>
 
     <!-- Footer -->
    <footer id="contact" class="footer-modern">
