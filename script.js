@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
  if (video) {
-        video.playbackRate = 2.5; 
+        video.playbackRate = 1.0; 
         
         video.play().catch(() => {
             closePreloaderDirectly();
